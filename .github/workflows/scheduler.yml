@@ -1,11 +1,9 @@
-name: Schedule Heroku Dyno
+name: Run Scheduled Task
 
 on:
   schedule:
     - cron: '*/1 * * * *'  # Adjust the cron expression to your schedule (e.g., every hour)
   workflow_dispatch:  # Allows manual triggering of the workflow
-
-name: Run Scheduled Task
 
 jobs:
   run-task:
@@ -33,3 +31,4 @@ jobs:
           -H "Content-Type: application/json" \
           -H "Accept: application/vnd.heroku+json; version=3" \
           -H "Authorization: Bearer ${{ secrets.HEROKU_API_TOKEN }}"
+
