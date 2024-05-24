@@ -5,7 +5,7 @@ const HEROKU_API_TOKEN = process.env.HEROKU_API_TOKEN;
 // Your Heroku app name
 const HEROKU_APP_NAME = process.env.HEROKU_APP_NAME;
 // The type of dyno you want to scale (e.g., web, worker)
-const DYNO_TYPE = process.env.DYNO_TYPE || 'web';
+const DYNO_TYPE = process.env.DYNO_TYPE || 'eco';
 // Number of dynos to scale to
 const DYNO_QUANTITY = process.env.DYNO_QUANTITY || 1;
 
