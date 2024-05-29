@@ -1,24 +1,24 @@
-name: Run Scheduled Task
+# name: Run Scheduled Task
 
-on:
-  schedule:
-    - cron: '*/1 * * * *'  # Adjust the cron expression to your schedule (e.g., every hour)
-  workflow_dispatch:  # Allows manual triggering of the workflow
+# on:
+#   schedule:
+#     - cron: '*/1 * * * *'  # Adjust the cron expression to your schedule (e.g., every hour)
+#   workflow_dispatch:  # Allows manual triggering of the workflow
 
-jobs:
-  run-task:
-    runs-on: ubuntu-latest
+# jobs:
+#   run-task:
+#     runs-on: ubuntu-latest
 
-    steps:
+#     steps:
 
-      - name: Run task
-        env:
-          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-        run: |
-          curl -n -X POST https://api.heroku.com/apps/${{ secrets.HEROKU_APP_NAME }}/dynos \
-          -d '{ "command": "python task.py" }' \
-          -H "Content-Type: application/json" \
-          -H "Accept: application/vnd.heroku+json; version=3" \
-          -H "Authorization: Bearer ${{ secrets.HEROKU_API_TOKEN }}"
+#       - name: Run task
+#         env:
+#           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+#           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+#         run: |
+#           curl -n -X POST https://api.heroku.com/apps/${{ secrets.HEROKU_APP_NAME }}/dynos \
+#           -d '{ "command": "python task.py" }' \
+#           -H "Content-Type: application/json" \
+#           -H "Accept: application/vnd.heroku+json; version=3" \
+#           -H "Authorization: Bearer ${{ secrets.HEROKU_API_TOKEN }}"
 
